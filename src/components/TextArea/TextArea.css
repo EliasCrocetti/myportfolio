@@ -1,0 +1,18 @@
+.textarea{
+    margin-top: 5px;
+    color: #adacb0;
+}
+
+
+.textarea-no-side-borders {
+    width: 30%;
+    margin-top: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #adacb0;
+    height: 80px;
+    text-align: center;
+    outline: none;
+    color: #adacb0;
+  }
