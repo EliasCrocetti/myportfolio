@@ -5,13 +5,13 @@
 
 
 .textarea-no-side-borders {
-    width: 26%;
+    width: 280px;
+    height: 90px;
     margin-top: 10px;
     border-left: none;
     border-right: none;
     border-top: none;
     border-bottom: 1px solid #adacb0;
-    height: 70px;
     text-align: center;
     outline: none;
     color: #adacb0;

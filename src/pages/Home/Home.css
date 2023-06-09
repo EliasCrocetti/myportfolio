@@ -7,3 +7,7 @@
     justify-content: center;
 }
 
+.errorMessage{
+    color: #d01c1cb8;
+    font-weight: 600;
+}

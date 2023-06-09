@@ -24,3 +24,15 @@ nav ul li a{
 .logo{
     width: 100px;
 }
+
+.aboutUs {
+    background-color: #282c34;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .aboutUs:hover {
+    background-color: #c8e7ed82;
+  }

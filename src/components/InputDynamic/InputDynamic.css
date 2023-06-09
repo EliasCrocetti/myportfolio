@@ -1,17 +1,46 @@
-
-.InputDynamic{
+.InputDynamic {
+  color: #adacb0;
+  border: 0;
+  border-bottom: 1px solid #adacb0;
+  padding: 12px 15px;
+  height: auto;
+  background: transparent;
+  text-align: center;
+  margin-left: 32px;
+  width: auto;
+}
+.InputDynamicWhitoutLeft {
     color: #adacb0;
     border: 0;
     border-bottom: 1px solid #adacb0;
     padding: 12px 15px;
     height: auto;
     background: transparent;
-    text-align: center;
-}
+    text-align: center;    
+    width: auto;
+  }
 
 
-.btnDynamic{
-    padding: 10px;
-    margin-left: 5px;
-    border: none;
+.btnDynamic {
+  padding: 10px;
+  margin-left: 5px;
+  border: none;
 }
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.addButton {
+  margin-left: 5px;
+}
+
+.removeButton {
+  margin-left: 5px;
+}
+.alignButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-left:32px
+  }

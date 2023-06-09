@@ -19,7 +19,7 @@ export const NavBar = () => {
               <img className='logo' src={logo} /> 
             </li>
             <li>
-              <a href='#'>About us</a>
+              <a href='#' className='aboutUs'>About us</a>
             </li>
           </ul>
           </nav>
