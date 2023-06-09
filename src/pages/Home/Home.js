@@ -1,7 +1,7 @@
 import { Input } from "../../components/Input/Input"
 import { Button } from "../../components/Button/Button"
 import { useState } from "react";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, createSearchParams } from 'react-router-dom';
 
 
 
@@ -11,7 +11,7 @@ import InputComponent from "../../components/InputDynamic/InputDynamic";
 
 const Home = () => {
   const navigate = useNavigate();
-  
+
   const [name, setName] = useState("");
   const [git, setGit] = useState("");
   const [linkedin, setLinkedin] = useState("");
@@ -25,8 +25,8 @@ const Home = () => {
     let esValido = false;
     array.map((element) => {
       console.log(element)
-  
-      if (element === ""){
+
+      if (element === "") {
         esValido = false
       } else {
         esValido = true
@@ -41,22 +41,22 @@ const Home = () => {
     console.log(skills, arraySkillsVacios)
     if (!name || !git || !linkedin || arrayProyectVacios === false || arraySkillsVacios === false || !description) {
       setErrorMessage("Todos los campos son obligatorios");
-    } else {
-      setErrorMessage("");
-      const data = {
-        name: name,
-        git: git,
-        linkedin: linkedin,
-        proyects: proyects,
-        skills: skills,
-        description: description
-      };
-      setData(data); // actualizo datos
-
-      navigate('/first-portfolio', { state: data }); // Redirigir a la nueva página
-      //query params
-
+      return
     }
+
+    setErrorMessage("");
+    const data = {
+      name: name,
+      git: git,
+      linkedin: linkedin,
+      proyects: proyects,
+      skills: skills,
+      description: description
+    };
+    setData(data); // actualizo datos
+
+    navigate(`first-portfolio?name=${name}&git=${git}&linkedin=${linkedin}&proyects=${proyects}
+      &skills=${skills}&description=${description}`);
   };
 
   const handleTextAreaChange = (event) => {
@@ -73,7 +73,7 @@ const Home = () => {
         <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} />
         <InputComponent placeholder={"Tus Skills"} onChange={(skills) => setSkills(skills)} />
         <TextArea placeholder={"Descripcion"} onChange={handleTextAreaChange} />
-        <br/>{errorMessage && <span className="errorMessage">{errorMessage}</span>}<br/>
+        <br />{errorMessage && <span className="errorMessage">{errorMessage}</span>}<br />
         <Button onClick={handleClick}>Enviar</Button>
       </div>
       {/*data && <FirstPortfolio data={data} />*/} {/* Renderizar el componente si hay datos */}
