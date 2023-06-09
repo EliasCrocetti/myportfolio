@@ -8,7 +8,7 @@ export const TextArea = (props) => {
 
   const handleChange = (event) => {
     settextValue(event.target.value);
-    if (textValue.length < 10) {
+    if (textValue.length < 500) {
       settextValue(event.target.value);
       console.log(event.target.value);
     }
@@ -17,11 +17,11 @@ export const TextArea = (props) => {
   return (
     <>
       <textarea value={textValue} {...props}  
-      maxLength={10} 
+      maxLength={500} 
       onChange={handleChange} 
       className='textarea-no-side-borders'/>
 
-      <span className='textarea'>Restan: {10 - textValue.length} caracteres</span>
+      <span className='textarea'>Restan: {500 - textValue.length} caracteres</span>
     </>
   )
 }
