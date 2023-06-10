@@ -1,0 +1,25 @@
+.imageCircular{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px black solid;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .skills {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .info {
+    flex: 1;
+  }

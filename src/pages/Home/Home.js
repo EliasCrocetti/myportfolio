@@ -70,6 +70,8 @@ const Home = () => {
         <Input placeholder={"Ingresá nombre completo"} onChange={(event) => setName(event.target.value)} />
         <Input placeholder={"Ingresá tu GIT"} onChange={(event) => setGit(event.target.value)} />
         <Input placeholder={"Ingresá tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
+        <Input placeholder={"Ingresá link de tu foto"} onChange={(event) => setLinkedin(event.target.value)} />
+        {/* <Imagen src={"ola"}/> */}
         <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} />
         <InputComponent placeholder={"Tus Skills"} onChange={(skills) => setSkills(skills)} />
         <TextArea placeholder={"Descripcion"} onChange={handleTextAreaChange} />
