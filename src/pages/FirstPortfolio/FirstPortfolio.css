@@ -63,3 +63,15 @@
     margin-right: auto;
 }
 }
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15vw;
+}
+
+.bloque {
+  color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
