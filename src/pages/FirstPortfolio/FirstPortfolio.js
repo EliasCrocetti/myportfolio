@@ -16,9 +16,8 @@ const FirstPortfolio = () => {
     <div className='FirstPortfolio-container'>  
       <div className='leftDiv'>
         <div class="contenedor">
-          {/* <div class="bloque">Bloque 1</div> */}  
-          <div class="bloque"><span><LogoLinkedin/></span></div>
-          <div class="bloque"><span><LogoGitHub/></span></div>
+          <div class="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')}/></span></div>
+          <div class="bloque"><span><LogoGitHub href={searchParams.get('git')}/></span></div>
         </div>
           {/* <div className='imgClass'>  
             <Imagen src={"https://pm1.aminoapps.com/6922/714394a04d4ef6ae60fb030685dcfed809931983r1-841-1024v2_uhq.jpg"} />
@@ -27,10 +26,15 @@ const FirstPortfolio = () => {
               <p>Nombre: {searchParams.get('name')}</p>
           </div> */}
       </div>
-      <div className='rightDiv'>
+      <div class="rightDiv">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+      {/* <div className='rightDiv'>
             <div>proyects: {searchParams.get('proyects')}</div>
             <div>description: {searchParams.get('description')}</div>
-      </div>
+      </div> */}
      </div></div>
     </>
   );

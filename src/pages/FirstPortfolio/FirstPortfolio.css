@@ -31,14 +31,24 @@
   height: 100%;
 }
 
-.rightDiv {
+/* .rightDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
   flex-grow: 2;
+} */
+.rightDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: white;  
+  flex-grow: 2;
 }
 
+.rightDiv > div {
+  flex-grow: 2;
+}
 .skillsClass {
   display: flex;
   flex-wrap: wrap;
