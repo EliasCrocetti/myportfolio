@@ -3,23 +3,63 @@
     margin: 0;
 }
 
-.container {
-    display: flex;
-    width: 100vw;
-    height: 100%;
-    justify-content: space-around;
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 80px; /* Puedes ajustar este valor según tus necesidades */
+}
+
+@media (max-width: 500px) {
+  .outer-container {
+    margin-top: 75px;
   }
-  
-  .leftDiv {
-    flex: 1;
-    align-items: center;    
-    height: 100%;
+}
+
+.FirstPortfolio-container {
+  display: flex;
+  /*flex-direction: column;*/
+  width: 100vw;
+  height: calc(100vh - 80px);
+  justify-content: space-around;
+  background-color: #151419;
+}
+
+.leftDiv {
+  flex: 1;
+  align-items: center;
+  height: 100%;
+}
+
+.rightDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  flex-grow: 2;
+}
+
+.skillsClass {
+  display: flex;
+  flex-wrap: wrap;
+  color:white;
+  /* justify-content: center; */
+}
+
+.skillItem {
+  background-color: #3787F8;
+  color: white;
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .skillItem {
+    font-size: 12px;
   }
-  
-  .rightDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  
-    height: 100%;
-    flex-grow: 2;
-  }
+  .left-align {
+    margin-right: auto;
+}
+}

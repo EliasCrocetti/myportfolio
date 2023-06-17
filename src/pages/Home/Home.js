@@ -3,6 +3,7 @@ import { Button } from "../../components/Button/Button"
 import { useState } from "react";
 import { useNavigate, Link, createSearchParams } from 'react-router-dom';
 
+import { NavBar } from '../../components/NavBar/NavBar';
 
 
 import './Home.css';
@@ -65,6 +66,7 @@ const Home = () => {
   }
 
   return (
+    <><NavBar />
     <div className="conteiner">
       <div className="homeConteiner">
         <Input placeholder={"Ingresá nombre completo"} onChange={(event) => setName(event.target.value)} />
@@ -79,7 +81,7 @@ const Home = () => {
         <Button onClick={handleClick}>Enviar</Button>
       </div>
       {/*data && <FirstPortfolio data={data} />*/} {/* Renderizar el componente si hay datos */}
-    </div>
+    </div></>
   )
 }
 

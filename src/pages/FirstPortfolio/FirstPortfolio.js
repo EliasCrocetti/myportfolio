@@ -1,17 +1,21 @@
 import {  useSearchParams } from 'react-router-dom';
 import { Imagen } from '../../components/Imagen/Imagen';
 import './FirstPortfolio.css'
+import { NavBarPortfolio } from '../../components/NavBarPortfolio/NavBarPortfolio';
 
 const FirstPortfolio = () => {  
   const [searchParams] = useSearchParams();
   console.log('searchParams', ); 
 
   return (
-    <div className='container'>  
+    <>
+    <NavBarPortfolio/>
+    <div className='outer-container'>
+    <div className='FirstPortfolio-container'>  
       <div className='leftDiv'>
-          <div className='imgClass'>  
+          {/* <div className='imgClass'>  
             <Imagen src={"https://pm1.aminoapps.com/6922/714394a04d4ef6ae60fb030685dcfed809931983r1-841-1024v2_uhq.jpg"} />
-          </div>
+          </div>  */}
           <div className='skillsClass'>              
               <p>Nombre: {searchParams.get('name')}</p>
               <p>GIT: {searchParams.get('git')}</p>
@@ -23,7 +27,8 @@ const FirstPortfolio = () => {
             <div>proyects: {searchParams.get('proyects')}</div>
             <div>description: {searchParams.get('description')}</div>
       </div>
-     </div>
+     </div></div>
+    </>
   );
 };
 
