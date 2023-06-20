@@ -4,6 +4,7 @@ import './FirstPortfolio.css'
 import { NavBarPortfolio } from '../../components/NavBarPortfolio/NavBarPortfolio';
 import { LogoLinkedin } from '../../components/LogoLinkedin/LogoLinkedin';
 import { LogoGitHub  } from '../../components/LogoGitHub/LogoGitHub';
+import { DataPerson } from '../../components/DataPerson/DataPerson';
 
 const FirstPortfolio = () => {  
   const [searchParams] = useSearchParams();
@@ -27,7 +28,7 @@ const FirstPortfolio = () => {
           </div> */}
       </div>
       <div class="rightDiv">
-          <div>1</div>
+          <div><DataPerson text="hola"></DataPerson></div>
           <div>2</div>
           <div>3</div>
         </div>
