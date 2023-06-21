@@ -1,0 +1,16 @@
+.containerDataInformation{
+    display: flex;
+    align-items: center;
+}
+
+.leftInformation{
+    flex-grow: 1;
+}
+
+.rightInformation{
+    flex-shrink: 0; /*Evita que el tamaño de la  img se encoga*/
+}
+
+.classOficio{
+    color: gray;
+}

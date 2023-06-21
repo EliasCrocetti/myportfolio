@@ -16,6 +16,8 @@ const Home = () => {
   const [name, setName] = useState("");
   const [git, setGit] = useState("");
   const [linkedin, setLinkedin] = useState("");
+  const [foto, setImagenPerfil] = useState("");
+  const [oficio, setOficio] = useState("");
   const [proyects, setProyects] = useState([]);
   const [skills, setSkills] = useState([]);
   const [description, setDescription] = useState("");
@@ -40,7 +42,7 @@ const Home = () => {
     let arrayProyectVacios = validateArray(proyects)
     let arraySkillsVacios = validateArray(skills)
     console.log(skills, arraySkillsVacios)
-    if (!name || !git || !linkedin || arrayProyectVacios === false || arraySkillsVacios === false || !description) {
+    if (!name || !git || !linkedin || !foto || !oficio || arrayProyectVacios === false || arraySkillsVacios === false || !description) {
       setErrorMessage("Todos los campos son obligatorios");
       return
     }
@@ -50,18 +52,21 @@ const Home = () => {
       name: name,
       git: git,
       linkedin: linkedin,
+      foto: foto,
+      oficio: oficio,
       proyects: proyects,
       skills: skills,
       description: description
     };
     setData(data); // actualizo datos
 
-    navigate(`first-portfolio?name=${name}&git=${git}&linkedin=${linkedin}&proyects=${proyects}
-      &skills=${skills}&description=${description}`);
+    console.log(data, "data")
+    navigate(`first-portfolio?name=${name}&git=${git}&linkedin=${linkedin}&foto=${foto}&oficio=${oficio}
+    &proyects=${proyects}&skills=${skills}&description=${description}`);
   };
 
   const handleTextAreaChange = (event) => {
-    console.log("event description", event.target.value)
+    //console.log("event description", event.target.value)
     setDescription(event.target.value)
   }
 
@@ -72,7 +77,8 @@ const Home = () => {
         <Input placeholder={"Ingresá nombre completo"} onChange={(event) => setName(event.target.value)} />
         <Input placeholder={"Ingresá tu GIT"} onChange={(event) => setGit(event.target.value)} />
         <Input placeholder={"Ingresá tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
-        <Input placeholder={"Ingresá link de tu foto"} onChange={(event) => setLinkedin(event.target.value)} />
+        <Input placeholder={"Ingresá link de tu foto"} onChange={(event) => setImagenPerfil(event.target.value)} />
+        <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
         <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} />
         <InputComponent placeholder={"Tus Skills"} onChange={(skills) => setSkills(skills)} />
         <TextArea placeholder={"Descripcion"} onChange={handleTextAreaChange} />
