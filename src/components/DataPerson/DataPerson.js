@@ -9,9 +9,10 @@ export const DataPerson = (props) => {
   return (
   <div className='containerDataInformation'>
     <div className='leftInformation'>
-      <h1><span>Hi!, I'm {props.text}</span></h1>
-      <h5><span className='classOficio'>{props.oficio}</span></h5>
-      <h3><span>{props.description}</span></h3>
+      <h5><span>Hi!, I'm {props.text}</span>
+      <h2 className='classOficio'>{props.oficio}</h2>
+      </h5>
+      <h3 className='espacioSuperior'><span>{props.description}</span></h3>
     </div>
 
     <div className='rightInformation'>

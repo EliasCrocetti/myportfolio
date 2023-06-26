@@ -19,7 +19,7 @@
 .FirstPortfolio-container {
   display: flex;
   /*flex-direction: column;*/
-  width: 100vw;
+  /* width: 100vw; */
   height: calc(100vh - 80px);
   justify-content: space-around;
   background-color: #151419;
@@ -29,6 +29,7 @@
   flex: 1;
   align-items: center;
   height: 100%;
+  width: 20%;
 }
 
 /* .rightDiv {
@@ -48,6 +49,11 @@
 
 .rightDiv > div {
   flex-grow: 2;
+}
+
+.downDiv {
+  position: absolute;
+  bottom: 0px;
 }
 .skillsClass {
   display: flex;
@@ -77,11 +83,58 @@
 .contenedor {
   display: flex;
   flex-direction: column;
-  margin-top: 15vw;
+  margin-top: 48vw;
 }
 
 .bloque {
   color: #f2f2f2;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.marquee {
+  width: calc(100vw - 80px);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+.marquee span {
+  display: inline-block;
+  transform: translateX(100%);
+  margin-right: 10px;
+}
+
+
+.infiniteLoop{
+  animation: marquee 10s linear infinite running;
+}
+
+.pausedLoop{
+  animation: marquee 10s linear infinite paused;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Adjust the margin value as needed */
+}
+
+.button-wrapper .marquee {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.button-wrapper button {
+  flex-shrink: 0;
 }
