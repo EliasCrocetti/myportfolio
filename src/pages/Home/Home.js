@@ -65,10 +65,10 @@ const Home = () => {
     &proyects=${proyects}&skills=${skills}&description=${description}`);
   };
 
-  const handleTextAreaChange = (event) => {
-    //console.log("event description", event.target.value)
-    setDescription(event.target.value)
-  }
+  const handleTextAreaChange = (value) => {
+    console.log("event description", value);
+    setDescription(value);
+  };
 
   return (
     <><NavBar />
@@ -81,7 +81,9 @@ const Home = () => {
         <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
         <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} />
         <InputComponent placeholder={"Tus Skills"} onChange={(skills) => setSkills(skills)} />
-        <TextArea placeholder={"Descripcion"} onChange={handleTextAreaChange} />
+        <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"} 
+        onChange={(event) => handleTextAreaChange(event.target.value)} />
+
         <br />{errorMessage && <span className="errorMessage">{errorMessage}</span>}<br />
         <Button onClick={handleClick}>Enviar</Button>
       </div>

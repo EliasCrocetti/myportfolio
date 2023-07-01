@@ -1,20 +1,28 @@
 .containerDataInformation{
     display: flex;
     align-items: center;
+    width: 80%;
+    margin-left: 80px;
 }
 
-.leftInformation{
+.leftInformation {
     flex-grow: 1;
-}
-
+    overflow-wrap: break-word; /* Ajusta el texto para que no se desborde */
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  .espacioSuperior {
+    margin-top: 35px;
+    max-height: 200px; /* Establece una altura máxima para la descripción */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el texto es demasiado largo */
+  }
+  
 .rightInformation{
     flex-shrink: 0; /*Evita que el tamaño de la  img se encoga*/
+    margin-left: 20px;
 }
 
 .classOficio{
     color: gray;
 }
-
-.espacioSuperior{
-    margin-top: 35px;
-  }

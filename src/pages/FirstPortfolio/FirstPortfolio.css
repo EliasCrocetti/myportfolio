@@ -19,7 +19,7 @@
 .FirstPortfolio-container {
   display: flex;
   /*flex-direction: column;*/
-  /* width: 100vw; */
+  width: 100vw;
   height: calc(100vh - 80px);
   justify-content: space-around;
   background-color: #151419;
@@ -81,9 +81,15 @@
 }
 
 .contenedor {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  margin-top: 48vw;
+  margin-top: 48vw; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  flex-direction: column;
 }
 
 .bloque {
@@ -93,7 +99,7 @@
 }
 
 .marquee {
-  width: calc(100vw - 80px);
+  width: calc(100vw - 130px);
   overflow: hidden;
   white-space: nowrap;
 }
