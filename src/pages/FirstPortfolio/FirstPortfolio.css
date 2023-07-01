@@ -1,13 +1,18 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #151419;
 }
 
 .outer-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 80px; /* Puedes ajustar este valor según tus necesidades */
+  margin-top: 80px;
 }
 
 @media (max-width: 500px) {
@@ -18,9 +23,8 @@
 
 .FirstPortfolio-container {
   display: flex;
-  /*flex-direction: column;*/
   width: 100vw;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 40px);
   justify-content: space-around;
   background-color: #151419;
 }
@@ -30,20 +34,16 @@
   align-items: center;
   height: 100%;
   width: 20%;
+  /* margin-left: 60px; */
+  display: flex;
+  justify-content: center;
 }
 
-/* .rightDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  flex-grow: 2;
-} */
 .rightDiv {
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: white;  
+  color: white;
   flex-grow: 2;
 }
 
@@ -51,40 +51,24 @@
   flex-grow: 2;
 }
 
-.downDiv {
-  position: absolute;
-  bottom: 0px;
-}
-.skillsClass {
+.button-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  color:white;
-  /* justify-content: center; */
+  align-items: center;
+  margin-top: 10px;
 }
 
-.skillItem {
-  background-color: #3787F8;
-  color: white;
-  padding: 8px 16px;
-  margin: 8px;
-  border-radius: 6px;
-  font-size: 14px;
+.button-wrapper .marquee {
+  flex-grow: 1;
+  margin-right: 10px;
+  font-weight: 600;
+  color: gray;
 }
 
-@media (max-width: 768px) {
-  .skillItem {
-    font-size: 12px;
-  }
-  .left-align {
-    margin-right: auto;
-}
+.button-wrapper button {
+  flex-shrink: 0;
 }
 
 .contenedor {
-  /* display: flex;
-  flex-direction: column;
-  margin-top: 48vw; */
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,43 +88,63 @@
   white-space: nowrap;
 }
 
-
 .marquee span {
   display: inline-block;
   transform: translateX(100%);
   margin-right: 10px;
 }
 
-
-.infiniteLoop{
+.infiniteLoop {
   animation: marquee 10s linear infinite running;
 }
 
-.pausedLoop{
+.pausedLoop {
   animation: marquee 10s linear infinite paused;
 }
 
-
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(-100%);
   }
 }
 
-.button-wrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 10px; /* Adjust the margin value as needed */
+.skillItem {
+  background-color: #3787F8;
+  color: white;
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.button-wrapper .marquee {
-  flex-grow: 1;
-  margin-right: 10px;
+@media (max-width: 429px) {
+  .skillItem {
+    font-size: 12px;
+  }
+  .left-align {
+    margin-left: 10px;
+  }
+  .leftDiv {
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+  }
 }
 
-.button-wrapper button {
-  flex-shrink: 0;
+@media (orientation: portrait) {
+  /* vertical, retrato */
+  body {
+    background-color: #151419;
+  }
+}
+
+@media (orientation: landscape) {
+  /* horizontal (paisaje) */
+  body {
+    background-color: #151419;
+  }
 }

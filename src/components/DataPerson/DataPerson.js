@@ -12,7 +12,19 @@ export const DataPerson = (props) => {
       <h5><span>Hi!, I'm {props.text}</span>
       <h2 className='classOficio'>{props.oficio}</h2>
       </h5>
-      <h3 className='espacioSuperior'><span>{props.description}</span></h3>
+      <h3 className='espacioSuperior'>
+        <span>
+        {!props.description || props.description.length === 0 ? (
+          <h4>
+          I have experience in software development, specifically in {props.oficio}
+          development, using {props.skills}. Additionally, and 
+          I have experience in technical troubleshooting and customer service, as well as skills 
+          in teamwork, y project management.</h4>
+        ) : (
+          <h4>{props.description ? 'true' : 'false'}{props.description.length}</h4>
+        )}
+        </span>
+        </h3>
     </div>
 
     <div className='rightInformation'>

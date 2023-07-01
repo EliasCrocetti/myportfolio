@@ -1,28 +1,51 @@
-.containerDataInformation{
-    display: flex;
-    align-items: center;
-    width: 80%;
-    margin-left: 80px;
-}
-
-.leftInformation {
+.containerDataInformation {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Cambiado a 100% */
+  /* margin-left: 40px;*/
+  margin-top: 20px; 
+  }
+  
+  .leftInformation {
     flex-grow: 1;
-    overflow-wrap: break-word; /* Ajusta el texto para que no se desborde */
+    overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
   }
   
   .espacioSuperior {
-    margin-top: 35px;
-    max-height: 200px; /* Establece una altura máxima para la descripción */
-    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el texto es demasiado largo */
+    /* margin-top: 35px; */
+    max-height: 400px;
+    overflow-y: auto;
   }
   
-.rightInformation{
-    flex-shrink: 0; /*Evita que el tamaño de la  img se encoga*/
-    margin-left: 20px;
-}
-
-.classOficio{
+  .rightInformation {
+    flex-shrink: 0;
+    /* margin-left: 20px; */
+  }
+  
+  .classOficio {
     color: gray;
-}
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .containerDataInformation {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    .rightInformation {
+      flex-shrink: 0;
+      flex-grow: 1;
+    }
+  
+    .espacioSuperior {
+      margin-top: 35px;
+      max-height: 400px;
+      overflow-y: auto;
+      /* width: 182px; */
+    }
+  }
+  

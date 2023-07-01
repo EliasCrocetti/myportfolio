@@ -42,7 +42,7 @@ const Home = () => {
     let arrayProyectVacios = validateArray(proyects)
     let arraySkillsVacios = validateArray(skills)
     console.log(skills, arraySkillsVacios)
-    if (!name || !git || !linkedin || !foto || !oficio || arrayProyectVacios === false || arraySkillsVacios === false || !description) {
+    if (!name || !git || !linkedin || !foto || !oficio || arrayProyectVacios === false || arraySkillsVacios === false) {
       setErrorMessage("Todos los campos son obligatorios");
       return
     }

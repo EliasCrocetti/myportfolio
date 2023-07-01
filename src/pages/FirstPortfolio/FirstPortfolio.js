@@ -71,7 +71,8 @@ const FirstPortfolio = () => {
                 text={searchParams.get('name')}
                 oficio={searchParams.getAll('oficio')}
                 foto={searchParams.getAll('foto')}
-                description={searchParams.getAll('description')}
+                description={searchParams.get('description')}
+                skills={searchParams.get('skills')}
               ></DataPerson>
               <div className="button-wrapper">
                 <div
@@ -80,8 +81,8 @@ const FirstPortfolio = () => {
                   onMouseLeave={handleMouseLeave}
                 >
                <span className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`}>
-  {searchParams.getAll('skills').reverse().join(', ')}
-</span>
+                {searchParams.getAll('skills').reverse().join(', ')}
+              </span>
                   {/* {hasReact && <FaReact className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`} />}
                   {hasAngular && <FaAngular className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`} />}
                   {hasPython && <FaPython className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`} />}

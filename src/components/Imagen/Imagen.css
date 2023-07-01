@@ -23,3 +23,11 @@
   .info {
     flex: 1;
   }
+
+  /* pal cel*/
+@media (max-width: 768px) {
+  .container {
+      display: flex;
+      flex-wrap: wrap;
+  }
+}
