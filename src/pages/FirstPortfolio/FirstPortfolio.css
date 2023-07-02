@@ -29,6 +29,13 @@ body {
   background-color: #151419;
 }
 
+.conteinerDataProyects{
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 30px 50px 50px 50px;
+}
+
 .leftDiv {
   flex: 1;
   align-items: center;
@@ -55,6 +62,7 @@ body {
   display: flex;
   align-items: center;
   margin-top: 10px;
+  margin-left: 50px;
 }
 
 .button-wrapper .marquee {
@@ -91,7 +99,6 @@ body {
 .marquee span {
   display: inline-block;
   transform: translateX(100%);
-  margin-right: 10px;
 }
 
 .infiniteLoop {
@@ -104,7 +111,7 @@ body {
 
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(150%);
   }
   100% {
     transform: translateX(-100%);
@@ -120,7 +127,7 @@ body {
   font-size: 14px;
 }
 
-@media (max-width: 429px) {
+@media (max-width: 768px) {
   .skillItem {
     font-size: 12px;
   }
@@ -132,6 +139,13 @@ body {
     align-items: center;
     height: 100%;
     width: 20%;
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 0px;
   }
 }
 

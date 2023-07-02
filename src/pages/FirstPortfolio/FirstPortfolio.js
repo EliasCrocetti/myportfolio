@@ -7,6 +7,8 @@ import { LogoLinkedin } from '../../components/LogoLinkedin/LogoLinkedin';
 import { LogoGitHub } from '../../components/LogoGitHub/LogoGitHub';
 import { DataPerson } from '../../components/DataPerson/DataPerson';
 import { FaReact, FaAngular, FaPython } from 'react-icons/fa';
+import ContactForm from '../../components/Contact/Contact';
+import Card from '../../components/Cards/Cards';
 
 
 const FirstPortfolio = () => {
@@ -113,10 +115,17 @@ const FirstPortfolio = () => {
                 {/* <button onClick={toggleLoop}>hola probando {isLoopPaused ? 'Pausado' : 'Reanudar'}</button> */}
               </div>
             </div>
-            <div>
-              2
+            <div className='conteinerDataProyects'>
+            <Card
+        imageUrl="imagen.jpg"
+        title="Título de la tarjeta"
+        content="Contenido de la tarjeta..."
+        link="#"
+      />
             </div>
-            <div>3</div>
+            <div>
+                <ContactForm email={searchParams.get('email')}></ContactForm>
+            </div>
           </div>
         </div>
       </div>

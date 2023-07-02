@@ -35,7 +35,7 @@ const InputComponent = (props) => {
           ...(areButtonsActive && index === inputValues.length - 1
             ? { marginLeft: '32px' }
             : {})
-        }}
+        }}hola
         className={`${index !== 0 ? 'inputContainer' : ''} ${areButtonsActive && index === inputValues.length - 1 ? 'alignButtons' : ''}`}>
           <input
             type="text"
@@ -47,7 +47,9 @@ const InputComponent = (props) => {
             onChange={(event) => handleInputChange(index, event.target.value)}
           />
           {index !== 0 && (
-            <button className='btnDynamic removeButton' onClick={() => handleRemoveInput(index)}>-</button>
+            <>
+              <button className='btnDynamic removeButton' onClick={() => handleRemoveInput(index)}>-</button>
+            </>
           )}
           {index === inputValues.length - 1 && (
             <button className='btnDynamic addButton' onClick={handleAddInput}>+</button>
