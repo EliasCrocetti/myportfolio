@@ -30,10 +30,11 @@ body {
 }
 
 .conteinerDataProyects{
-  display: flex;
+  /* display: flex;
   align-items: center;
-  width: 80%;
-  margin: 30px 50px 50px 50px;
+  width: 80%; */
+  margin: 10px 0px 10px 0px;
+  margin-left:50px;
 }
 
 .leftDiv {
@@ -52,6 +53,7 @@ body {
   height: 100%;
   color: white;
   flex-grow: 2;
+  margin-left: 40px;
 }
 
 .rightDiv > div {
@@ -61,15 +63,14 @@ body {
 .button-wrapper {
   display: flex;
   align-items: center;
-  margin-top: 10px;
-  margin-left: 50px;
 }
 
 .button-wrapper .marquee {
   flex-grow: 1;
-  margin-right: 10px;
+  /* width: 100%; */
   font-weight: 600;
   color: gray;
+  margin: 10px 0px 10px 50px;
 }
 
 .button-wrapper button {
@@ -91,9 +92,10 @@ body {
 }
 
 .marquee {
-  width: calc(100vw - 130px);
+  /* width: calc(100vw - 130px); */
   overflow: hidden;
   white-space: nowrap;
+  text-align: end; /* Alinea el texto a la derecha */
 }
 
 .marquee span {
@@ -111,10 +113,10 @@ body {
 
 @keyframes marquee {
   0% {
-    transform: translateX(150%);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-100vw);
   }
 }
 
@@ -132,7 +134,7 @@ body {
     font-size: 12px;
   }
   .left-align {
-    margin-left: 10px;
+    /* margin-left: 10px; */
   }
   .leftDiv {
     flex: 1;
@@ -140,13 +142,16 @@ body {
     height: 100%;
     width: 20%;
   }
-
+  .conteinerDataProyects{
+    margin-left:0px;
+  }
   .button-wrapper {
     display: flex;
     align-items: center;
-    margin-top: 10px;
-    margin-left: 0px;
   }
+  .button-wrapper .marquee {
+    margin: 10px 0px 10px 0px;
+}
 }
 
 @media (orientation: portrait) {

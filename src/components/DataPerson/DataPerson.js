@@ -15,7 +15,7 @@ export const DataPerson = (props) => {
         {!props.description || props.description.length === 0 ? (
           <h4>
           I have experience in software development, specifically in {props.oficio}
-          development, using {props.skills}. Additionally, and 
+          development, using <span className='dataPersonSkills'>{props.skills}</span>. Additionally, and 
           I have experience in technical troubleshooting and customer service, as well as skills 
           in teamwork, y project management.</h4>
         ) : (

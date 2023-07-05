@@ -29,7 +29,9 @@
 
 .inputContainer {
   display: flex;
-  align-items: center;margin-top: 10px;margin-left: 28px;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 28px;
 }
 
 .addButton {

@@ -29,6 +29,10 @@
   .classOficio {
     color: gray;
   }
+
+  .dataPersonSkills{
+    color:darkgray;
+  }
   
   /* Estilos para dispositivos móviles */
   @media (max-width: 768px) {
@@ -37,11 +41,13 @@
       align-items: center;
       margin-top: 20px;
       margin-left: 0px;
+      flex-direction: column-reverse;
     }
   
     .rightInformation {
       flex-shrink: 0;
       flex-grow: 1;
+      width: auto;
     }
   
     .espacioSuperior {

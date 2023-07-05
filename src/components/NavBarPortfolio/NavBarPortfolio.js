@@ -15,7 +15,7 @@ export const NavBarPortfolio = () => {
   return (
     <>
       <nav className='nav-porflio'>
-        <ul className={`container ${isMenuOpen ? 'menu-open' : ''}`}>
+        <ul className={`containerNav ${isMenuOpen ? 'menu-open' : ''}`}>
           <li className="left-align">
             <img className='logo' src={logo} alt="Logo" />
           </li>

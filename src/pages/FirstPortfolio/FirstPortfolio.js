@@ -5,6 +5,7 @@ import './FirstPortfolio.css';
 import { NavBarPortfolio } from '../../components/NavBarPortfolio/NavBarPortfolio';
 import { LogoLinkedin } from '../../components/LogoLinkedin/LogoLinkedin';
 import { LogoGitHub } from '../../components/LogoGitHub/LogoGitHub';
+import { LogoEmail } from '../../components/LogoEmail/LogoEmail';
 import { DataPerson } from '../../components/DataPerson/DataPerson';
 import { FaReact, FaAngular, FaPython } from 'react-icons/fa';
 import ContactForm from '../../components/Contact/Contact';
@@ -65,6 +66,7 @@ const FirstPortfolio = () => {
             <div className="contenedor">
               <div className="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')} /></span></div>
               <div className="bloque"><span><LogoGitHub href={searchParams.get('git')} /></span></div>
+              <div className="bloque"><span><LogoEmail href={searchParams.get('git')} /></span></div>
             </div>
           </div>
           <div className="rightDiv">
@@ -117,14 +119,21 @@ const FirstPortfolio = () => {
             </div>
             <div className='conteinerDataProyects'>
             <Card
-        imageUrl="imagen.jpg"
-        title="Título de la tarjeta"
-        content="Contenido de la tarjeta..."
-        link="#"
-      />
+              imageUrl="imagen.jpg"
+              title="Título de la tarjeta"
+              content="Contenido de la tarjeta..."
+              link="#"
+            />
+            <Card
+            imageUrl="imagen.jpg"
+            title="Título de la tarjeta"
+            content="Contenido de la tarjeta..."
+            link="#"
+          />
             </div>
             <div>
-                <ContactForm email={searchParams.get('email')}></ContactForm>
+                Mi mail de contacto: {searchParams.get('email')}
+                {/* <ContactForm email={searchParams.get('email')}></ContactForm> */}
             </div>
           </div>
         </div>

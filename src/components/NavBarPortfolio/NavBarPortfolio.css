@@ -1,4 +1,4 @@
-.container {
+.containerNav {
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -98,3 +98,4 @@
     margin-left: 20px;
   }
 }
+

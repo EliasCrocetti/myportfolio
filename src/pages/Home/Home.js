@@ -9,6 +9,7 @@ import { NavBar } from '../../components/NavBar/NavBar';
 import './Home.css';
 import { TextArea } from "../../components/TextArea/TextArea";
 import InputComponent from "../../components/InputDynamic/InputDynamic";
+import ProyectsC from "../../components/Proyects/Proyects";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -39,10 +40,21 @@ const Home = () => {
     return esValido;
   }
 
+  function validarElementos(name, git, linkedin, email, foto, oficio, proyects, skills) {
+    const elementos = [name, git, linkedin, email, foto, oficio, proyects, skills];
+  
+    const elementoFaltante = elementos.find(elemento => !elemento || (Array.isArray(elemento) && elemento.length === 0));
+  
+    return elementoFaltante || null;
+  }
+
+  
   const handleClick = () => {
-    let arrayProyectVacios = validateArray(proyects)
-    if (!name || !git || !linkedin || !email || !foto || !oficio || arrayProyectVacios === false || !skills) {
-      setErrorMessage("Todos los campos son obligatorios");
+    let arrayProyectVacios = validateArray(proyects);
+    let elementoFaltante = validarElementos(name, git, linkedin, email, foto, oficio, proyects, skills);
+    console.log(!name || !git || !linkedin || !email || !foto || !oficio || !proyects || !skills)
+    if (!name || !git || !linkedin || !email || !foto || !oficio || !proyects || proyects.length ===0  || !skills) {
+      setErrorMessage("Todos los campos son obligatorios, te falta agregar: " + elementoFaltante);
       return
     }
 
@@ -81,7 +93,8 @@ const Home = () => {
         <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
         <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
         <Input placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)}  />
-        <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} />
+        {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
+        <ProyectsC onChange={(proyects) => setProyects(proyects)}/>
         <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"} 
         onChange={(event) => handleTextAreaChange(event.target.value)} />
 

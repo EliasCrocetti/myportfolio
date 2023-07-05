@@ -35,7 +35,7 @@ const InputComponent = (props) => {
           ...(areButtonsActive && index === inputValues.length - 1
             ? { marginLeft: '32px' }
             : {})
-        }}hola
+        }}
         className={`${index !== 0 ? 'inputContainer' : ''} ${areButtonsActive && index === inputValues.length - 1 ? 'alignButtons' : ''}`}>
           <input
             type="text"
