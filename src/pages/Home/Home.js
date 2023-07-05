@@ -29,8 +29,6 @@ const Home = () => {
   const validateArray = (array) => {
     let esValido = false;
     array.map((element) => {
-      console.log(element)
-
       if (element === "") {
         esValido = false
       } else {
@@ -42,18 +40,16 @@ const Home = () => {
 
   function validarElementos(name, git, linkedin, email, foto, oficio, proyects, skills) {
     const elementos = [name, git, linkedin, email, foto, oficio, proyects, skills];
-  
     const elementoFaltante = elementos.find(elemento => !elemento || (Array.isArray(elemento) && elemento.length === 0));
-  
     return elementoFaltante || null;
   }
 
-  
+
   const handleClick = () => {
     let arrayProyectVacios = validateArray(proyects);
     let elementoFaltante = validarElementos(name, git, linkedin, email, foto, oficio, proyects, skills);
-    console.log(!name || !git || !linkedin || !email || !foto || !oficio || !proyects || !skills)
-    if (!name || !git || !linkedin || !email || !foto || !oficio || !proyects || proyects.length ===0  || !skills) {
+
+    if (!name || !git || !linkedin || !email || !foto || !oficio || !proyects || proyects.length === 0 || !skills) {
       setErrorMessage("Todos los campos son obligatorios, te falta agregar: " + elementoFaltante);
       return
     }
@@ -71,10 +67,28 @@ const Home = () => {
       description: description
     };
     setData(data); // actualizo datos
+    const params = new URLSearchParams(); // nueva instancia del URLSearchParams
 
-    console.log(data, "data")
-    navigate(`first-portfolio?name=${name}&email=${email}&git=${git}&linkedin=${linkedin}&foto=${foto}&oficio=${oficio}
-    &proyects=${proyects}&skills=${skills}&description=${description}`);
+    // parametros
+    params.append('name', name);
+    params.append('git', git);
+    params.append('linkedin', linkedin);
+    params.append('foto', foto);
+    params.append('email', email);
+    params.append('oficio', oficio);
+    params.append('skills', skills);
+    params.append('description', description);
+
+    proyects.forEach((proyecto, index) => {
+      params.append(`tituloProyecto${index + 1}`, proyecto.titulo);
+      params.append(`descripcionProyecto${index + 1}`, proyecto.descripcion);
+      params.append(`enlaceImagen${index + 1}`, proyecto.enlaceImagen);
+    });
+
+    // Obtener la URL completa con los parametros
+    const url = `first-portfolio?${params.toString()}`;
+
+    navigate(url);
   };
 
   const handleTextAreaChange = (value) => {
@@ -84,24 +98,24 @@ const Home = () => {
 
   return (
     <><NavBar />
-    <div className="conteiner">
-      <div className="homeConteiner">
-        <Input placeholder={"Ingresá tu Nombre completo"} onChange={(event) => setName(event.target.value)} />
-        <Input placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
-        <Input placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
-        <Input placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
-        <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
-        <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
-        <Input placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)}  />
-        {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
-        <ProyectsC onChange={(proyects) => setProyects(proyects)}/>
-        <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"} 
-        onChange={(event) => handleTextAreaChange(event.target.value)} />
+      <div className="conteiner">
+        <div className="homeConteiner">
+          <Input placeholder={"Ingresá tu Nombre completo"} onChange={(event) => setName(event.target.value)} />
+          <Input placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
+          <Input placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
+          <Input placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
+          <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
+          <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
+          <Input placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
+          {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
+          <ProyectsC onChange={(proyects) => setProyects(proyects)} />
+          <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"}
+            onChange={(event) => handleTextAreaChange(event.target.value)} />
 
-        <br />{errorMessage && <span className="errorMessage">{errorMessage}</span>}<br />
-        <Button onClick={handleClick}>Enviar</Button>
-      </div>
-    </div></>
+          <br />{errorMessage && <span className="errorMessage">{errorMessage}</span>}<br />
+          <Button onClick={handleClick}>Enviar</Button>
+        </div>
+      </div></>
   )
 }
 

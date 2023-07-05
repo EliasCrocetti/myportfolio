@@ -17,19 +17,33 @@ const FirstPortfolio = () => {
   const [isLoopPaused, setIsLoopPaused] = useState(false);
   const [marqueePaused, setMarqueePaused] = useState(false);
 
-  
+
   const skillsArray = searchParams.getAll('skills');
   const skillsString = skillsArray.join(",");
   const skills = skillsString.split(",");
 
   const keywords = ['react', 'angular', 'python', 'c#'];
 
-    
+
   const hasAngular = skills.some(skill => skill.includes("angular"));
   const hasReact = skills.some(skill => skill.includes("react"));
   const hasPython = skills.some(skill => skill.includes("python"));
   const hasCSharp = skills.some(skill => skill.includes("hola"));
-  
+
+  const projects = [];
+  searchParams.forEach((valueElementSearchParam, key) => {
+    if (key.startsWith('tituloProyecto')) {
+      const index = key.slice('tituloProyecto'.length);
+      const project = {
+        titulo: valueElementSearchParam,
+        descripcion: searchParams.get(`descripcionProyecto${index}`),
+        enlaceImagen: searchParams.get(`enlaceImagen${index}`)
+      };
+      projects.push(project);
+    }
+  });
+
+
   const handleMouseEnter = () => {
     if (!marqueePaused) {
       setIsLoopPaused(true);
@@ -84,9 +98,9 @@ const FirstPortfolio = () => {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-               <span className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`}>
-                {searchParams.getAll('skills').reverse().join(', ')}
-              </span>
+                  <span className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`}>
+                    {searchParams.getAll('skills').reverse().join(', ')}
+                  </span>
                   {/* {hasReact && <FaReact className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`} />}
                   {hasAngular && <FaAngular className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`} />}
                   {hasPython && <FaPython className={`react-icon infiniteLoop ${isLoopPaused ? 'pausedLoop' : ''}`} />}
@@ -118,22 +132,30 @@ const FirstPortfolio = () => {
               </div>
             </div>
             <div className='conteinerDataProyects'>
-            <Card
+              {/* <Card
               imageUrl="imagen.jpg"
               title="Título de la tarjeta"
               content="Contenido de la tarjeta..."
               link="#"
-            />
-            <Card
+            /> */}
+              {projects.map((element, key) => (
+                <Card
+                  imageUrl={element.enlaceImagen}
+                  title={element.titulo}
+                  content={element.descripcion}
+                  link="#"
+                />
+              ))}
+              {/* <Card
             imageUrl="imagen.jpg"
             title="Título de la tarjeta"
             content="Contenido de la tarjeta..."
             link="#"
-          />
+          /> */}
             </div>
             <div>
-                Mi mail de contacto: {searchParams.get('email')}
-                {/* <ContactForm email={searchParams.get('email')}></ContactForm> */}
+              Mi mail de contacto: {searchParams.get('email')}
+              {/* <ContactForm email={searchParams.get('email')}></ContactForm> */}
             </div>
           </div>
         </div>
