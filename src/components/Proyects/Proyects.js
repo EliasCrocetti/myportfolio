@@ -11,6 +11,7 @@ const ProyectsC = ({ onChange }) => {
       titulo: "",
       descripcion: "",
       enlaceImagen: "",
+      enlaceAlProyecto: ""
     };
 
     setInputs([...inputs, {}]);   
@@ -61,6 +62,14 @@ const ProyectsC = ({ onChange }) => {
             name="enlaceImagen"
             placeholder="Link a imagen del proyecto"
             value={input.enlaceImagen || ""}
+            onChange={(e) => handleInputChange(index, e)}
+          />
+          <input
+            type="text"
+            className="InputDynamicProyects"
+            name="enlaceAlProyecto"
+            placeholder="Link enlace al proyecto"
+            value={input.enlaceAlProyecto || ""}
             onChange={(e) => handleInputChange(index, e)}
           />
           {inputs.length > 1 && (

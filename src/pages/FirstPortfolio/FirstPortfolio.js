@@ -37,7 +37,8 @@ const FirstPortfolio = () => {
       const project = {
         titulo: valueElementSearchParam,
         descripcion: searchParams.get(`descripcionProyecto${index}`),
-        enlaceImagen: searchParams.get(`enlaceImagen${index}`)
+        enlaceImagen: searchParams.get(`enlaceImagen${index}`),
+        enlaceAlProyecto: searchParams.get(`enlaceAlProyecto${index}`)
       };
       projects.push(project);
     }

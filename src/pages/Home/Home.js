@@ -83,6 +83,7 @@ const Home = () => {
       params.append(`tituloProyecto${index + 1}`, proyecto.titulo);
       params.append(`descripcionProyecto${index + 1}`, proyecto.descripcion);
       params.append(`enlaceImagen${index + 1}`, proyecto.enlaceImagen);
+      params.append(`enlaceAlProyecto${index + 1}`, proyecto.enlaceAlProyecto);
     });
 
     // Obtener la URL completa con los parametros
