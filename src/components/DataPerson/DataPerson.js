@@ -19,14 +19,18 @@ export const DataPerson = (props) => {
           I have experience in technical troubleshooting and customer service, as well as skills 
           in teamwork, y project management.</h4>
         ) : (
-          <h4>{props.description ? 'true' : 'false'}{props.description.length}</h4>
+          <h4>
+            {props.description}
+          </h4>
         )}
         </span>
         </h3>
     </div>
     <div className='rightInformation'>
       {props.foto && /\.(jpg|jpeg|png|gif)$/.test(props.foto) ? (
-        <ImagenPerfil src={props.foto} />
+        <>
+        <span>{props.foto}</span>
+        <ImagenPerfil src={props.foto} /></>
       ) : (
         <>
        <ImagenPerfil src={"https://pm1.aminoapps.com/6922/714394a04d4ef6ae60fb030685dcfed809931983r1-841-1024v2_uhq.jpg"}/>
