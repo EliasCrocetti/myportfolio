@@ -9,6 +9,47 @@
   width: 100%;
 }
 
+.changeOriginal{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #282c34;
+  border: solid 1px #4f4f52;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+.changeWhite {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #89004f;
+  border: none;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+.changeBlack {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #202124;
+  border: solid 1px black;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+
+.changeGreen {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #003400;
+  border: solid 1px #006414;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
 .nav-porfolio{
   background-color: #282c34;
 }

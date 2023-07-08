@@ -5,8 +5,12 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import React, { useState } from 'react';
 
-export const NavBarPortfolio = () => {
+export const NavBarPortfolio = ({ onColorChange }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const handleColorButtonClick = (color1, color2, colorDescription) => {
+    onColorChange(color1, color2, colorDescription); // Llamar a la función onColorChange del componente padre
+  };
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -26,11 +30,16 @@ export const NavBarPortfolio = () => {
             <a href='#' className='topButton'>About</a>
           </li>
           <li className="center-buttons">
-            <a href='#' className='topButton'>Contact</a>
+            <a href='#contactMe' className='topButton'>Contact</a>
           </li>
-          
+          <li className="center-buttons">
+            <button className="changeWhite" onClick={() => handleColorButtonClick('#003400', '#89004f', 'pink')}></button>
+            <button className="changeBlack" onClick={() => handleColorButtonClick('#003400','#202124', 'black')}></button>
+            <button className="changeGreen" onClick={() => handleColorButtonClick('#003400','#003400', 'green')}></button>
+            <button className="changeOriginal" onClick={() => handleColorButtonClick('#000080', '#151419', 'original')}></button>
+          </li>
           <li className="right-buttons">
-          <span className="resume">Resume</span>
+            <span className="resume">Resume</span>
           </li>
           <li className="menu-toggle" onClick={handleMenuToggle}>
             <FontAwesomeIcon icon={faBars} />

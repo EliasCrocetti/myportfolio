@@ -29,7 +29,6 @@ export const DataPerson = (props) => {
     <div className='rightInformation'>
       {props.foto && /\.(jpg|jpeg|png|gif)$/.test(props.foto) ? (
         <>
-        <span>{props.foto}</span>
         <ImagenPerfil src={props.foto} /></>
       ) : (
         <>

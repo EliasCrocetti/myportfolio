@@ -101,13 +101,13 @@ const Home = () => {
     <><NavBar />
       <div className="conteiner">
         <div className="homeConteiner">
-          <Input placeholder={"Ingresá tu Nombre completo"} onChange={(event) => setName(event.target.value)} />
-          <Input placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
-          <Input placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
-          <Input placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
-          <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
-          <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
-          <Input placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
+          <Input maxLength={100} placeholder={"Ingresá tu Nombre completo"} onChange={(event) => setName(event.target.value)} />
+          <Input maxLength={100} placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
+          <Input maxLength={100} placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
+          <Input maxLength={100} placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
+          <Input maxLength={100} placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
+          <Input maxLength={100} placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
+          <Input maxLength={100} placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
           {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
           <ProyectsC onChange={(proyects) => setProyects(proyects)} />
           <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"}

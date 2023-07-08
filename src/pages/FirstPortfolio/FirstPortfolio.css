@@ -29,12 +29,19 @@ body {
   background-color: #151419;
 }
 
-.conteinerDataProyects{
+.conteinerDataProyects {
   /* display: flex;
   align-items: center;
   width: 80%; */
   margin: 10px 0px 10px 0px;
-  margin-left:50px;
+  margin-left: 50px;
+}
+
+.classEmail {
+  width: calc(80% - (20% * 0.2));
+  overflow-wrap: break-word;
+  text-decoration: none;
+  color: white;
 }
 
 .leftDiv {
@@ -48,6 +55,7 @@ body {
 }
 
 .rightDiv {
+  width: calc(80% - (20% * 0.2));
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -56,7 +64,7 @@ body {
   margin-left: 40px;
 }
 
-.rightDiv > div {
+.rightDiv>div {
   flex-grow: 2;
 }
 
@@ -95,7 +103,8 @@ body {
   /* width: calc(100vw - 130px); */
   overflow: hidden;
   white-space: nowrap;
-  text-align: end; /* Alinea el texto a la derecha */
+  text-align: end;
+  /* Alinea el texto a la derecha */
 }
 
 .marquee span {
@@ -115,6 +124,7 @@ body {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100vw);
   }
@@ -133,28 +143,34 @@ body {
   .skillItem {
     font-size: 12px;
   }
+
   .left-align {
     /* margin-left: 10px; */
   }
+
   .leftDiv {
     flex: 1;
     align-items: center;
     height: 100%;
     width: 20%;
   }
-  .conteinerDataProyects{
-    margin-left:0px;
+
+  .conteinerDataProyects {
+    margin-left: 0px;
   }
+
   .button-wrapper {
     display: flex;
     align-items: center;
   }
+
   .button-wrapper .marquee {
     margin: 10px 0px 10px 0px;
-}
+  }
 }
 
 @media (orientation: portrait) {
+
   /* vertical, retrato */
   body {
     background-color: #151419;
@@ -162,6 +178,7 @@ body {
 }
 
 @media (orientation: landscape) {
+
   /* horizontal (paisaje) */
   body {
     background-color: #151419;

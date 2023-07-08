@@ -4,9 +4,12 @@ import "./Proyects.css"; // Importar el archivo CSS con las clases de estilo
 const ProyectsC = ({ onChange }) => {
   //recibo la funcion onchange como una prop
   const [inputs, setInputs] = useState([]);
+  const [count, setCount] = useState(0);
 
   const handleAddInput = () => {
-
+    setCount(count +1);
+    console.log(count)
+ 
     const newInput = {
       titulo: "",
       descripcion: "",
@@ -46,6 +49,7 @@ const ProyectsC = ({ onChange }) => {
             name="titulo"
             placeholder="Título del proyecto"
             value={input.titulo || ""}
+            maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
           />
           <input
@@ -54,6 +58,7 @@ const ProyectsC = ({ onChange }) => {
             name="descripcion"
             placeholder="Descripción del proyecto"
             value={input.descripcion || ""}
+            maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
           />
           <input
@@ -62,6 +67,7 @@ const ProyectsC = ({ onChange }) => {
             name="enlaceImagen"
             placeholder="Link a imagen del proyecto"
             value={input.enlaceImagen || ""}
+            maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
           />
           <input
@@ -70,6 +76,7 @@ const ProyectsC = ({ onChange }) => {
             name="enlaceAlProyecto"
             placeholder="Link enlace al proyecto"
             value={input.enlaceAlProyecto || ""}
+            maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
           />
           {inputs.length > 1 && (

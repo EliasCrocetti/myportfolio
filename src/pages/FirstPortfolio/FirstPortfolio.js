@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Imagen } from '../../components/Imagen/Imagen';
 import './FirstPortfolio.css';
@@ -16,6 +16,10 @@ const FirstPortfolio = () => {
   const [searchParams] = useSearchParams();
   const [isLoopPaused, setIsLoopPaused] = useState(false);
   const [marqueePaused, setMarqueePaused] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('linear-gradient(180deg, #151419, #9198e5)');
+  const [gradient, setGradient] = useState(backgroundColor);
+  const [changeColorText, setchangeColorText] = useState('white');
+
 
 
   const skillsArray = searchParams.getAll('skills');
@@ -44,6 +48,26 @@ const FirstPortfolio = () => {
     }
   });
 
+  const handleColorChange = (colorBackGround1, colorBackGround2, colorDescription) => {
+    //const gradient = `linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`;  
+    setGradient(`linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`);
+    setBackgroundColor(`linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`);
+    //setBackgroundColor(gradient); // Cambia el fondo con el degradado
+    
+    //setBackgroundColor(colorBackGround1, colorBackGround2); // cambia fondo
+    if (colorDescription === "pink") {
+      setchangeColorText('#ff69b4')
+    }    
+    if (colorDescription === "black") {
+      setchangeColorText('black')
+    }    
+    if (colorDescription === "green") {
+      setchangeColorText('green')
+    }    
+    if (colorDescription === "original") {
+      setchangeColorText('white')
+    }
+  };
 
   const handleMouseEnter = () => {
     if (!marqueePaused) {
@@ -67,16 +91,26 @@ const FirstPortfolio = () => {
       }
     }
   };
+  
   // const toggleLoop = () => {
   //   setIsLoopPaused(!isLoopPaused);
   //   setMarqueePaused(!marqueePaused);
   // };
 
+  
+
+  useEffect(() => {
+    document.body.style.backgroundColor = gradient; // Actualizar el color de fondo del body
+    return () => {
+      document.body.style.backgroundColor = ''; // Restaurar el color de fondo original del body al desmontar el componente
+    };
+  }, [gradient]);
+
   return (
     <>
-      <NavBarPortfolio />
+      <NavBarPortfolio onColorChange={handleColorChange} />
       <div className='outer-container'>
-        <div className='FirstPortfolio-container'>
+        <div className='FirstPortfolio-container' style={{ background: gradient, color: changeColorText }}>
           <div className='leftDiv'>
             <div className="contenedor">
               <div className="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')} /></span></div>
@@ -84,7 +118,7 @@ const FirstPortfolio = () => {
               <div className="bloque"><span><LogoEmail href={searchParams.get('git')} /></span></div>
             </div>
           </div>
-          <div className="rightDiv">
+          <div className="rightDiv" style={{ background: gradient, color: changeColorText }}>
             <div>
               <DataPerson
                 text={searchParams.get('name')}
@@ -133,29 +167,17 @@ const FirstPortfolio = () => {
               </div>
             </div>
             <div className='conteinerDataProyects'>
-              {/* <Card
-              imageUrl="imagen.jpg"
-              title="Título de la tarjeta"
-              content="Contenido de la tarjeta..."
-              link="#"
-            /> */}
               {projects.map((element, key) => (
                 <Card
                   imageUrl={element.enlaceImagen}
                   title={element.titulo}
                   content={element.descripcion}
-                  link="#"
+                  link={element.enlaceAlProyecto}
                 />
               ))}
-              {/* <Card
-            imageUrl="imagen.jpg"
-            title="Título de la tarjeta"
-            content="Contenido de la tarjeta..."
-            link="#"
-          /> */}
             </div>
-            <div>
-              Mi mail de contacto: {searchParams.get('email')}
+            <div href="#contactMe" className='classEmail'>
+              Contact Me: {searchParams.get('email')}
               {/* <ContactForm email={searchParams.get('email')}></ContactForm> */}
             </div>
           </div>
