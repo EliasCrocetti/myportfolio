@@ -29,6 +29,8 @@ const Home = () => {
   const [backgroundColor, setBackgroundColor] = useState('linear-gradient(180deg, #151419, #9198e5)');
   const [gradient, setGradient] = useState(backgroundColor);
   const [changeColorText, setchangeColorText] = useState('white');
+  const [isAddingProject, setIsAddingProject] = useState(true);
+
 
 
   const validateArray = (array) => {
@@ -148,6 +150,9 @@ const Home = () => {
       params.append(`enlaceAlProyecto${index + 1}`, proyecto.enlaceAlProyecto);
     });
 
+    setIsAddingProject(false); // establece isAddingProject en false
+
+
     // Obtener la URL completa con los parametros
     const url = `first-portfolio?${params.toString()}`;
 
@@ -179,7 +184,7 @@ const Home = () => {
           <Input maxLength={100} placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
           <Input maxLength={100} placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
           {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
-          <ProyectsC onChange={(proyects) => setProyects(proyects)} />
+          <ProyectsC onChange={(proyects) => setProyects(proyects)}  isAddingProject={isAddingProject} setIsAddingProject={setIsAddingProject} />
           <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"}
             onChange={(event) => handleTextAreaChange(event.target.value)} />
 

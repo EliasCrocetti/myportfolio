@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Proyects.css"; // Importar el archivo CSS con las clases de estilo
 
-const ProyectsC = ({ onChange }) => {
+const ProyectsC = ({ onChange, isAddingProject  }) => {
   //recibo la funcion onchange como una prop
   const [inputs, setInputs] = useState([]);
   const [count, setCount] = useState(0);

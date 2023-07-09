@@ -42,6 +42,7 @@ body {
   overflow-wrap: break-word;
   text-decoration: none;
   color: white;
+  margin-left: 50px;
 }
 
 .leftDiv {
@@ -97,6 +98,7 @@ body {
   color: #f2f2f2;
   padding: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .marquee {
@@ -139,6 +141,14 @@ body {
   font-size: 14px;
 }
 
+@media (max-width: 600px) {
+
+  .conteinerDataProyects {
+    margin-left: 20px;
+  }
+}
+
+
 @media (max-width: 768px) {
   .skillItem {
     font-size: 12px;
@@ -153,10 +163,6 @@ body {
     align-items: center;
     height: 100%;
     width: 20%;
-  }
-
-  .conteinerDataProyects {
-    margin-left: 0px;
   }
 
   .button-wrapper {

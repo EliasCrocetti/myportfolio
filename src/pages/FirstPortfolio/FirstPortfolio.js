@@ -10,6 +10,8 @@ import { DataPerson } from '../../components/DataPerson/DataPerson';
 import { FaReact, FaAngular, FaPython } from 'react-icons/fa';
 import ContactForm from '../../components/Contact/Contact';
 import Card from '../../components/Cards/Cards';
+import { RiFileCopy2Line } from 'react-icons/ri';
+import CopyToClipboard from '../../components/ClipBoardButton/ClipBoardButton';
 
 
 const FirstPortfolio = () => {
@@ -60,13 +62,13 @@ const FirstPortfolio = () => {
 
     if (colorDescription === "pink") {
       setchangeColorText('#ff69b4')
-    }    
+    }
     if (colorDescription === "black") {
       setchangeColorText('black')
-    }    
+    }
     if (colorDescription === "green") {
       setchangeColorText('green')
-    }    
+    }
     if (colorDescription === "original") {
       setchangeColorText('white')
     }
@@ -94,7 +96,7 @@ const FirstPortfolio = () => {
       }
     }
   };
-  
+
   // const toggleLoop = () => {
   //   setIsLoopPaused(!isLoopPaused);
   //   setMarqueePaused(!marqueePaused);
@@ -106,7 +108,7 @@ const FirstPortfolio = () => {
     return () => {
       document.body.style.background = ''; // Restaurar el color de fondo original del body al desmontar el componente
     };
-  }, [gradient],[searchParams]);
+  }, [gradient], [searchParams]);
 
   return (
     <>
@@ -118,6 +120,21 @@ const FirstPortfolio = () => {
               <div className="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')} /></span></div>
               <div className="bloque"><span><LogoGitHub href={searchParams.get('git')} /></span></div>
               <div className="bloque"><span><LogoEmail href={searchParams.get('git')} /></span></div>
+              <CopyToClipboard
+              ></CopyToClipboard>
+              {/* <div className="bloque" title="Copiar URL en portapapeles">
+                <span
+                  style={{ fontSize: '50px', cursor: 'pointer' }}
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    // Aquí puedes agregar alguna lógica adicional después de copiar al portapapeles
+                  }}
+                >
+                  <RiFileCopy2Line />
+                </span>
+              </div> */}
+
+
             </div>
           </div>
           <div className="rightDiv" style={{ background: backgroundColor, color: changeColorText }}>
