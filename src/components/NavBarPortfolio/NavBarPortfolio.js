@@ -32,12 +32,13 @@ export const NavBarPortfolio = ({ onColorChange }) => {
           <li className="center-buttons">
             <a href='#contactMe' className='topButton'>Contact</a>
           </li>
-          <li className="center-buttons">
+          {/* <li className="center-buttons">
             <button className="changeWhite" onClick={() => handleColorButtonClick('#003400', '#89004f', 'pink')}></button>
             <button className="changeBlack" onClick={() => handleColorButtonClick('#151419', '#02024C', 'original')}></button>
             <button className="changeGreen" onClick={() => handleColorButtonClick('#4C1864','#003400', 'green')}></button>
+            <button className="changeCyan" onClick={() => handleColorButtonClick('#151419', '#9198e5', 'original')}></button>
             <button className="changeOriginal" onClick={() => handleColorButtonClick('#151419', '#282c34', 'original')}></button>
-          </li>
+          </li> */}
           <li className="right-buttons">
             <span className="resume">Resume</span>
           </li>

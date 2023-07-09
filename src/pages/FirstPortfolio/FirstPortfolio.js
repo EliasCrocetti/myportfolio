@@ -16,10 +16,15 @@ const FirstPortfolio = () => {
   const [searchParams] = useSearchParams();
   const [isLoopPaused, setIsLoopPaused] = useState(false);
   const [marqueePaused, setMarqueePaused] = useState(false);
+  //const [backgroundColor, setBackgroundColor] = useState('linear-gradient(180deg, #151419, #9198e5)');
   const [backgroundColor, setBackgroundColor] = useState('linear-gradient(180deg, #151419, #9198e5)');
   const [gradient, setGradient] = useState(backgroundColor);
   const [changeColorText, setchangeColorText] = useState('white');
 
+
+  //background
+  const backgroundColor1 = searchParams.get('backgroundColor1');
+  const backgroundColor2 = searchParams.get('backgroundColor2');
 
 
   const skillsArray = searchParams.getAll('skills');
@@ -96,11 +101,12 @@ const FirstPortfolio = () => {
   // };
 
   useEffect(() => {
-    document.body.style.background = gradient; // Actualizar el color de fondo del body
+    setBackgroundColor(`linear-gradient(180deg, ${backgroundColor1}, ${backgroundColor2})`);
+    document.body.style.background = backgroundColor2; // Actualizar el color de fondo del body
     return () => {
       document.body.style.background = ''; // Restaurar el color de fondo original del body al desmontar el componente
     };
-  }, [gradient]);
+  }, [gradient],[searchParams]);
 
   return (
     <>
