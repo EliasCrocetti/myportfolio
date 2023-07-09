@@ -34,9 +34,9 @@ export const NavBarPortfolio = ({ onColorChange }) => {
           </li>
           <li className="center-buttons">
             <button className="changeWhite" onClick={() => handleColorButtonClick('#003400', '#89004f', 'pink')}></button>
-            <button className="changeBlack" onClick={() => handleColorButtonClick('#003400','#202124', 'black')}></button>
-            <button className="changeGreen" onClick={() => handleColorButtonClick('#003400','#003400', 'green')}></button>
-            <button className="changeOriginal" onClick={() => handleColorButtonClick('#000080', '#151419', 'original')}></button>
+            <button className="changeBlack" onClick={() => handleColorButtonClick('#151419', '#02024C', 'original')}></button>
+            <button className="changeGreen" onClick={() => handleColorButtonClick('#4C1864','#003400', 'green')}></button>
+            <button className="changeOriginal" onClick={() => handleColorButtonClick('#151419', '#282c34', 'original')}></button>
           </li>
           <li className="right-buttons">
             <span className="resume">Resume</span>

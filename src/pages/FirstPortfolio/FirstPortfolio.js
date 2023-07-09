@@ -49,12 +49,10 @@ const FirstPortfolio = () => {
   });
 
   const handleColorChange = (colorBackGround1, colorBackGround2, colorDescription) => {
-    //const gradient = `linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`;  
-    setGradient(`linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`);
-    setBackgroundColor(`linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`);
-    //setBackgroundColor(gradient); // Cambia el fondo con el degradado
-    
-    //setBackgroundColor(colorBackGround1, colorBackGround2); // cambia fondo
+
+    setBackgroundColor(`linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`); // fondo del portfolio
+    setGradient(colorBackGround2); // fondo del body
+
     if (colorDescription === "pink") {
       setchangeColorText('#ff69b4')
     }    
@@ -97,12 +95,10 @@ const FirstPortfolio = () => {
   //   setMarqueePaused(!marqueePaused);
   // };
 
-  
-
   useEffect(() => {
-    document.body.style.backgroundColor = gradient; // Actualizar el color de fondo del body
+    document.body.style.background = gradient; // Actualizar el color de fondo del body
     return () => {
-      document.body.style.backgroundColor = ''; // Restaurar el color de fondo original del body al desmontar el componente
+      document.body.style.background = ''; // Restaurar el color de fondo original del body al desmontar el componente
     };
   }, [gradient]);
 
@@ -110,7 +106,7 @@ const FirstPortfolio = () => {
     <>
       <NavBarPortfolio onColorChange={handleColorChange} />
       <div className='outer-container'>
-        <div className='FirstPortfolio-container' style={{ background: gradient, color: changeColorText }}>
+        <div className='FirstPortfolio-container' style={{ background: backgroundColor, color: changeColorText }}>
           <div className='leftDiv'>
             <div className="contenedor">
               <div className="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')} /></span></div>
@@ -118,7 +114,7 @@ const FirstPortfolio = () => {
               <div className="bloque"><span><LogoEmail href={searchParams.get('git')} /></span></div>
             </div>
           </div>
-          <div className="rightDiv" style={{ background: gradient, color: changeColorText }}>
+          <div className="rightDiv" style={{ background: backgroundColor, color: changeColorText }}>
             <div>
               <DataPerson
                 text={searchParams.get('name')}

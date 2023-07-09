@@ -23,7 +23,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #89004f;
+  background: linear-gradient(#003400, #89004f);
   border: none;
   margin-top: 7px;
   cursor: pointer;
@@ -33,7 +33,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #202124;
+  background: linear-gradient(#151419, #02024C);
   border: solid 1px black;
   margin-top: 7px;
   cursor: pointer;
@@ -44,7 +44,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #003400;
+  background: linear-gradient(#4C1864,#003400);
   border: solid 1px #006414;
   margin-top: 7px;
   cursor: pointer;
