@@ -120,8 +120,9 @@ const FirstPortfolio = () => {
               <div className="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')} /></span></div>
               <div className="bloque"><span><LogoGitHub href={searchParams.get('git')} /></span></div>
               <div className="bloque"><span><LogoEmail href={searchParams.get('git')} /></span></div>
-              <CopyToClipboard
-              ></CopyToClipboard>
+              <div className="bloque" title="Copiar URL en portapapeles">
+                <CopyToClipboard text={window.location.href} />
+              </div>
               {/* <div className="bloque" title="Copiar URL en portapapeles">
                 <span
                   style={{ fontSize: '50px', cursor: 'pointer' }}

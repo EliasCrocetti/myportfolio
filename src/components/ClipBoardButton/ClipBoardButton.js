@@ -20,7 +20,7 @@ const CopyToClipboard = ({ text }) => {
   return (
     <div className="copy-icon" onClick={handleCopyClick}>
       <span style={{ fontSize: '50px', cursor: 'pointer' }}> <RiFileCopy2Line /> </span>
-      {isCopied && <span className="copy-message">Text copied!</span>}
+      {isCopied && <span className="copy-message" style={{background:'gray', color: 'orange', position: 'absolute'}}>Text copied!</span>}
     </div>
   );
 };
