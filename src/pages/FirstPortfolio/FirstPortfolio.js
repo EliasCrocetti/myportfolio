@@ -210,6 +210,7 @@ const FirstPortfolio = () => {
               ))}
             </div>
             <div className='conteinerDataProyects'>
+              <h3>Jobs</h3><br/>
               {jobs.map((element, key) => (
                 <Card
                   title={element.titulo}
