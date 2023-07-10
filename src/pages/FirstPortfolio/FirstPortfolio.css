@@ -154,6 +154,10 @@ body {
     font-size: 12px;
   }
 
+  .classEmail{
+    margin-left: 15px;
+  }
+
   .left-align {
     /* margin-left: 10px; */
   }

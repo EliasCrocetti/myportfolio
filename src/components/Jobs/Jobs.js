@@ -1,14 +1,14 @@
 import { useState } from "react";
-import "./Proyects.css"; // Importar el archivo CSS con las clases de estilo
+import "./Jobs.css"; // Importar el archivo CSS con las clases de estilo
 
-const ProyectsC = ({ onChange, isAddingProject  }) => {
+const Jobs = ({ onChange, isAddingProject  }) => {
   //recibo la funcion onchange como una prop
   const [inputs, setInputs] = useState([]);
   const [count, setCount] = useState(0);
 
   const handleAddInput = () => {
     setCount(count +1);
-    
+ 
     const newInput = {
       titulo: "",
       descripcion: "",
@@ -46,7 +46,7 @@ const ProyectsC = ({ onChange, isAddingProject  }) => {
             type="text"
             className="InputDynamicProyects"
             name="titulo"
-            placeholder="Título del proyecto"
+            placeholder="Nombre del trabajo"
             value={input.titulo || ""}
             maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
@@ -55,7 +55,7 @@ const ProyectsC = ({ onChange, isAddingProject  }) => {
             type="text"
             className="InputDynamicProyects"
             name="descripcion"
-            placeholder="Descripción del proyecto"
+            placeholder="Descripción del trabajo"
             value={input.descripcion || ""}
             maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
@@ -63,18 +63,9 @@ const ProyectsC = ({ onChange, isAddingProject  }) => {
           <input
             type="text"
             className="InputDynamicProyects"
-            name="enlaceImagen"
-            placeholder="Link a imagen del proyecto"
-            value={input.enlaceImagen || ""}
-            maxLength={100}
-            onChange={(e) => handleInputChange(index, e)}
-          />
-          <input
-            type="text"
-            className="InputDynamicProyects"
-            name="enlaceAlProyecto"
-            placeholder="Link enlace al proyecto"
-            value={input.enlaceAlProyecto || ""}
+            name="enlaceWebTrabajo"
+            placeholder="Link de la web del trabajo"
+            value={input.enlaceWebTrabajo || ""}
             maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
           />
@@ -90,11 +81,11 @@ const ProyectsC = ({ onChange, isAddingProject  }) => {
       ))}
       <div className="alignButtonsProyects">
         <button className="btnDynamicProyects addButtonProyects" onClick={handleAddInput}>
-          Agregar proyecto
+          Agregar trabajo
         </button>
       </div>
     </>
   );
 };
 
-export default ProyectsC;
+export default Jobs;

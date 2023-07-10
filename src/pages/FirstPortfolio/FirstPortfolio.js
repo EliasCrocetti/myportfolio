@@ -55,6 +55,19 @@ const FirstPortfolio = () => {
     }
   });
 
+  const jobs = [];
+  searchParams.forEach((valueElementSearchParam, key) => {
+    if (key.startsWith('nombreDelTrabajo')) {
+      const index = key.slice('nombreDelTrabajo'.length);
+      const job = {
+        titulo: valueElementSearchParam,
+        descripcion: searchParams.get(`descripcionDelTrabajo${index}`),
+        enlaceWebTrabajo: searchParams.get(`enlaceWebTrabajo${index}`),
+      };
+      jobs.push(job);
+    }
+  });
+
   const handleColorChange = (colorBackGround1, colorBackGround2, colorDescription) => {
 
     setBackgroundColor(`linear-gradient(180deg, ${colorBackGround1}, ${colorBackGround2})`); // fondo del portfolio
@@ -193,6 +206,15 @@ const FirstPortfolio = () => {
                   title={element.titulo}
                   content={element.descripcion}
                   link={element.enlaceAlProyecto}
+                />
+              ))}
+            </div>
+            <div className='conteinerDataProyects'>
+              {jobs.map((element, key) => (
+                <Card
+                  title={element.titulo}
+                  contentTrabajo={element.descripcion}
+                  link={element.enlaceWebTrabajo}
                 />
               ))}
             </div>

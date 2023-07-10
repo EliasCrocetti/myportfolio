@@ -1,0 +1,58 @@
+.InputDynamicProyects {
+    color: #adacb0;
+    border: 0;
+    border-bottom: 1px solid #adacb0;
+    padding: 12px 15px;
+    height: auto;
+    background: transparent;
+    text-align: center;
+    width: auto;
+  }
+  
+  .InputDynamicProyectsWhitoutLeft {
+    color: #adacb0;
+    border: 0;
+    border-bottom: 1px solid #adacb0;
+    padding: 12px 15px;
+    height: auto;
+    background: transparent;
+    text-align: center;
+    width: auto;
+  }
+  
+  .btnDynamicProyects {
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+  }
+  
+  .inputProyectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .addButtonProyects {
+    padding: 10px;
+    border-radius: 13px;
+    background-color: #c8e7ed82;
+    border: none;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .removeButtonProyects {
+    padding: 10px;
+    border-radius: 13px;
+    background-color: #c8e7ed82;
+    border: none;
+    margin-left: 5px;
+  }
+  
+  .alignButtonsProyects {
+    display: flex;
+    justify-content: space-between;
+  }
+  

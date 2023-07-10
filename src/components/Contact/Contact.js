@@ -6,13 +6,9 @@ const ContactForm = (props) => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  console.log("props", props)
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Agrega aquí la lógica para enviar el formulario de contacto
-    console.log('Formulario enviado:', { name, email, message });
-    // Restablece los campos después de enviar el formulario
+    // reestablecer los campos antes de enviar el formulario
     setName('');
     setEmail('');
     setMessage('');

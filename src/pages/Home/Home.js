@@ -10,6 +10,7 @@ import './Home.css';
 import { TextArea } from "../../components/TextArea/TextArea";
 import InputComponent from "../../components/InputDynamic/InputDynamic";
 import ProyectsC from "../../components/Proyects/Proyects";
+import Jobs from "../../components/Jobs/Jobs";
 
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
   const [email, setEmail] = useState("");
   const [oficio, setOficio] = useState("");
   const [proyects, setProyects] = useState([]);
+  const [jobs, setJobs] = useState([]);
   const [skills, setSkills] = useState("");
   const [description, setDescription] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -30,8 +32,6 @@ const Home = () => {
   const [gradient, setGradient] = useState(backgroundColor);
   const [changeColorText, setchangeColorText] = useState('white');
   const [isAddingProject, setIsAddingProject] = useState(true);
-
-
 
   const validateArray = (array) => {
     let esValido = false;
@@ -45,7 +45,7 @@ const Home = () => {
     return esValido;
   }
 
-  function validarElementos(name, git, linkedin, email, foto, oficio, proyects, skills) {
+  function validarElementos(name, git, linkedin, email, foto, oficio, proyects, jobs, skills) {
     const elementos = [
       { nombre: 'name', valor: name },
       { nombre: 'git', valor: git },
@@ -54,6 +54,7 @@ const Home = () => {
       { nombre: 'foto', valor: foto },
       { nombre: 'oficio', valor: oficio },
       { nombre: 'proyects', valor: proyects },
+      { nombre: 'jobs', valor: jobs },
       { nombre: 'skills', valor: skills }
     ];
 
@@ -65,6 +66,12 @@ const Home = () => {
         return elemento.valor.some(proyecto => {
           // devuelve el elemento vacio de proyct
           return !proyecto.titulo || !proyecto.descripcion || !proyecto.enlaceImagen || !proyecto.enlaceAlProyecto;
+        });
+      }
+      if (elemento.nombre === 'jobs' && Array.isArray(elemento.valor)) {
+        return elemento.valor.some(jobs => {
+          // devuelve el elemento vacio de proyct
+          return !jobs.titulo || !jobs.descripcion || !jobs.enlaceWebTrabajo;
         });
       }
       return false;
@@ -94,18 +101,27 @@ const Home = () => {
 
   const handleClick = () => {
     let arrayProyectVacios = validateArray(proyects);
-    let elementoFaltante = validarElementos(name, git, linkedin, email, foto, oficio, proyects, skills);
+    let arrayJobsVacios = validateArray(jobs);
+    let elementoFaltante = validarElementos(name, git, linkedin, email, foto, oficio, proyects, jobs, skills);
 
     const proyectoVacio = proyects.find(proyecto => (
       !proyecto.titulo || !proyecto.descripcion || !proyecto.enlaceImagen || !proyecto.enlaceAlProyecto
+    ));
+
+    const jobsVacio = jobs.find(jobs => (
+      !jobs.titulo || !jobs.descripcion || !jobs.enlaceWebTrabajo
     ));
 
     if (proyectoVacio) {
       setErrorMessage("Todos los campos de proyectos son obligatorios");
       return;
     }
+    if (jobsVacio) {
+      setErrorMessage("Todos los campos de trabajos son obligatorios");
+      return;
+    }
 
-    if (!name || !git || !linkedin || !email || !foto || !oficio || !proyects || proyects.length === 0 || !skills) {
+    if (!name || !git || !linkedin || !email || !foto || !oficio || !proyects || proyects.length === 0 || !jobs || jobs.length === 0 || !skills) {
       setErrorMessage("Todos los campos son obligatorios, te falta agregar: " + elementoFaltante);
       return
     }
@@ -118,6 +134,7 @@ const Home = () => {
       foto: foto,
       oficio: oficio,
       proyects: proyects,
+      jobs: jobs,
       skills: skills,
       email: email,
       description: description
@@ -150,8 +167,12 @@ const Home = () => {
       params.append(`enlaceAlProyecto${index + 1}`, proyecto.enlaceAlProyecto);
     });
 
+    jobs.forEach((jobs, index) => {
+      params.append(`nombreDelTrabajo${index + 1}`, jobs.titulo);
+      params.append(`descripcionDelTrabajo${index + 1}`, jobs.descripcion);
+      params.append(`enlaceWebTrabajo${index + 1}`, jobs.enlaceWebTrabajo);
+    });
     setIsAddingProject(false); // establece isAddingProject en false
-
 
     // Obtener la URL completa con los parametros
     const url = `first-portfolio?${params.toString()}`;
@@ -160,12 +181,15 @@ const Home = () => {
   };
 
   const handleTextAreaChange = (value) => {
-    console.log("event description", value);
     setDescription(value);
   };
 
   useEffect(() => {
     document.body.style.background = gradient; // Actualizar el color de fondo del body
+
+    setIsAddingProject(true);
+
+
     return () => {
       document.body.style.background = ''; // Restaurar el color de fondo original del body al desmontar el componente
     };
@@ -184,7 +208,8 @@ const Home = () => {
           <Input maxLength={100} placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
           <Input maxLength={100} placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
           {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
-          <ProyectsC onChange={(proyects) => setProyects(proyects)}  isAddingProject={isAddingProject} setIsAddingProject={setIsAddingProject} />
+          <ProyectsC onChange={(proyects) => setProyects(proyects)} isAddingProject={isAddingProject} setIsAddingProject={setIsAddingProject}></ProyectsC>
+          <Jobs onChange={(jobs) => setJobs(jobs)} ></Jobs>
           <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"}
             onChange={(event) => handleTextAreaChange(event.target.value)} />
 
