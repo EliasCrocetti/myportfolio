@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Imagen } from '../../components/Imagen/Imagen';
+//import { Imagen } from '../../components/Imagen/Imagen';
 import './FirstPortfolio.css';
 import { NavBarPortfolio } from '../../components/NavBarPortfolio/NavBarPortfolio';
 import { LogoLinkedin } from '../../components/LogoLinkedin/LogoLinkedin';
 import { LogoGitHub } from '../../components/LogoGitHub/LogoGitHub';
 import { LogoEmail } from '../../components/LogoEmail/LogoEmail';
 import { DataPerson } from '../../components/DataPerson/DataPerson';
-import { FaReact, FaAngular, FaPython } from 'react-icons/fa';
-import ContactForm from '../../components/Contact/Contact';
+//import { FaReact, FaAngular, FaPython } from 'react-icons/fa';
+//import ContactForm from '../../components/Contact/Contact';
 import Card from '../../components/Cards/Cards';
-import { RiFileCopy2Line } from 'react-icons/ri';
+//import { RiFileCopy2Line } from 'react-icons/ri';
 import CopyToClipboard from '../../components/ClipBoardButton/ClipBoardButton';
 
 
@@ -29,17 +29,17 @@ const FirstPortfolio = () => {
   const backgroundColor2 = searchParams.get('backgroundColor2');
 
 
-  const skillsArray = searchParams.getAll('skills');
-  const skillsString = skillsArray.join(",");
-  const skills = skillsString.split(",");
+  //const skillsArray = searchParams.getAll('skills');
+  //const skillsString = skillsArray.join(",");
+  //const skills = skillsString.split(",");
 
-  const keywords = ['react', 'angular', 'python', 'c#'];
+  //const keywords = ['react', 'angular', 'python', 'c#'];
 
 
-  const hasAngular = skills.some(skill => skill.includes("angular"));
-  const hasReact = skills.some(skill => skill.includes("react"));
-  const hasPython = skills.some(skill => skill.includes("python"));
-  const hasCSharp = skills.some(skill => skill.includes("hola"));
+  // const hasAngular = skills.some(skill => skill.includes("angular"));
+  // const hasReact = skills.some(skill => skill.includes("react"));
+  // const hasPython = skills.some(skill => skill.includes("python"));
+  // const hasCSharp = skills.some(skill => skill.includes("hola"));
 
   const projects = [];
   searchParams.forEach((valueElementSearchParam, key) => {
@@ -99,16 +99,16 @@ const FirstPortfolio = () => {
     }
   };
 
-  const toggleLoop = () => {
-    if (marqueePaused) {
-      setMarqueePaused(false);
-    } else {
-      setMarqueePaused(true);
-      if (!marqueePaused) {
-        setIsLoopPaused(true);
-      }
-    }
-  };
+  // const toggleLoop = () => {
+  //   if (marqueePaused) {
+  //     setMarqueePaused(false);
+  //   } else {
+  //     setMarqueePaused(true);
+  //     if (!marqueePaused) {
+  //       setIsLoopPaused(true);
+  //     }
+  //   }
+  // };
 
   // const toggleLoop = () => {
   //   setIsLoopPaused(!isLoopPaused);
