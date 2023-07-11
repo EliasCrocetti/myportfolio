@@ -32,7 +32,7 @@ export const NavBar = ({ onColorChange }) => {
             <button className="changeBordo" onClick={() => handleColorButtonClick('#855', '#111', 'original')}></button>
           </li>
           <li>
-            <a href='#' className='aboutUs'>About us!</a>
+            <a href='#' className='aboutUs'>About us</a>
           </li>
         </ul>
       </nav>
