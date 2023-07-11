@@ -153,7 +153,6 @@ const FirstPortfolio = () => {
           </div>
           <div className="rightDiv" style={{ background: backgroundColor, color: changeColorText }}>
             <div>
-            {searchParams.getAll('foto')}
               <DataPerson
                 text={searchParams.get('name')}
                 oficio={searchParams.getAll('oficio')}
