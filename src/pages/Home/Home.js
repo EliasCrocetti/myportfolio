@@ -150,11 +150,13 @@ const Home = () => {
     params.append('backgroundColor1', backgroundColor1);
     params.append('backgroundColor2', backgroundColor2);
 
+    //const encodedImageUrl = encodeURIComponent(foto);
+      const encodedText = btoa(foto);
     // parametros
     params.append('name', name);
     params.append('git', git);
     params.append('linkedin', linkedin);
-    params.append('foto', foto);
+    params.append('foto', encodedText);
     params.append('email', email);
     params.append('oficio', oficio);
     params.append('skills', skills);
@@ -200,13 +202,13 @@ const Home = () => {
     <><NavBar onColorChange={handleColorChange} />
       <div className="conteiner" style={{ background: backgroundColor, color: changeColorText }}>
         <div className="homeConteiner">
-          <Input maxLength={100} placeholder={"Ingresá tu Nombre completo"} onChange={(event) => setName(event.target.value)} />
-          <Input maxLength={100} placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
-          <Input maxLength={100} placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
-          <Input maxLength={100} placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
-          <Input maxLength={100} placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
-          <Input maxLength={100} placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
-          <Input maxLength={100} placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
+          <Input placeholder={"Ingresá tu Nombre completo"} onChange={(event) => setName(event.target.value)} />
+          <Input placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
+          <Input placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
+          <Input placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
+          <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
+          <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
+          <Input placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
           {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
           <ProyectsC onChange={(proyects) => setProyects(proyects)} isAddingProject={isAddingProject} setIsAddingProject={setIsAddingProject}></ProyectsC>
           <Jobs onChange={(jobs) => setJobs(jobs)} ></Jobs>

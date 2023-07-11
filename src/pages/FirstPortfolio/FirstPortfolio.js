@@ -132,7 +132,7 @@ const FirstPortfolio = () => {
             <div className="contenedor">
               <div className="bloque"><span><LogoLinkedin href={searchParams.get('linkedin')} /></span></div>
               <div className="bloque"><span><LogoGitHub href={searchParams.get('git')} /></span></div>
-              <div className="bloque"><span><LogoEmail href={searchParams.get('git')} /></span></div>
+              <div className="bloque"><span><LogoEmail href={searchParams.get('email')} /></span></div>
               <div className="bloque" title="Copiar URL en portapapeles">
                 <CopyToClipboard text={window.location.href} />
               </div>
@@ -153,6 +153,7 @@ const FirstPortfolio = () => {
           </div>
           <div className="rightDiv" style={{ background: backgroundColor, color: changeColorText }}>
             <div>
+            {searchParams.getAll('foto')}
               <DataPerson
                 text={searchParams.get('name')}
                 oficio={searchParams.getAll('oficio')}
