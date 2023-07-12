@@ -113,13 +113,19 @@
   display: none;
 }
 
+
+@media (max-width: 300px) {
+.center-buttons{
+  display: none;
+}
+}
+
 @media (max-width: 500px) {
   .containerNav {
     flex-direction: column;
     height: auto;
   }
 
-  .center-buttons,
   .right-buttons {
     display: none;
   }
