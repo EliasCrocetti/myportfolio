@@ -71,7 +71,7 @@ const Home = () => {
       if (elemento.nombre === 'jobs' && Array.isArray(elemento.valor)) {
         return elemento.valor.some(jobs => {
           // devuelve el elemento vacio de proyct
-          return !jobs.titulo || !jobs.descripcion || !jobs.enlaceWebTrabajo;
+          return !jobs.titulo || !jobs.descripcionDelTrabajo || !jobs.enlaceWebTrabajo;
         });
       }
       return false;
@@ -109,7 +109,7 @@ const Home = () => {
     ));
 
     const jobsVacio = jobs.find(jobs => (
-      !jobs.titulo || !jobs.descripcion || !jobs.enlaceWebTrabajo
+      !jobs.titulo || !jobs.descripcionDelTrabajo || !jobs.enlaceWebTrabajo
     ));
 
     if (proyectoVacio) {
@@ -149,14 +149,12 @@ const Home = () => {
     // agrega color los parametros
     params.append('backgroundColor1', backgroundColor1);
     params.append('backgroundColor2', backgroundColor2);
-
-    //const encodedImageUrl = encodeURIComponent(foto);
-      const encodedText = btoa(foto);
+    
     // parametros
     params.append('name', name);
     params.append('git', git);
     params.append('linkedin', linkedin);
-    params.append('foto', encodedText);
+    params.append('foto', foto);
     params.append('email', email);
     params.append('oficio', oficio);
     params.append('skills', skills);
@@ -171,7 +169,7 @@ const Home = () => {
 
     jobs.forEach((jobs, index) => {
       params.append(`nombreDelTrabajo${index + 1}`, jobs.titulo);
-      params.append(`descripcionDelTrabajo${index + 1}`, jobs.descripcion);
+      params.append(`descripcionDelTrabajo${index + 1}`, jobs.descripcionDelTrabajo);
       params.append(`enlaceWebTrabajo${index + 1}`, jobs.enlaceWebTrabajo);
     });
     setIsAddingProject(false); // establece isAddingProject en false

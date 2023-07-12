@@ -61,7 +61,7 @@ const FirstPortfolio = () => {
       const index = key.slice('nombreDelTrabajo'.length);
       const job = {
         titulo: valueElementSearchParam,
-        descripcion: searchParams.get(`descripcionDelTrabajo${index}`),
+        descripcionDelTrabajo: searchParams.get(`descripcionDelTrabajo${index}`),
         enlaceWebTrabajo: searchParams.get(`enlaceWebTrabajo${index}`),
       };
       jobs.push(job);
@@ -214,7 +214,7 @@ const FirstPortfolio = () => {
               {jobs.map((element, key) => (
                 <Card
                   title={element.titulo}
-                  contentTrabajo={element.descripcion}
+                  contentTrabajo={element.descripcionDelTrabajo}
                   link={element.enlaceWebTrabajo}
                 />
               ))}

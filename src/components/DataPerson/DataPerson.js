@@ -6,12 +6,6 @@ import './DataPerson.css';
 
 
 export const DataPerson = (props) => {
-  //const decodedImageUrl = decodeURIComponent(props.foto);
-
-  const decodedText = atob(props.foto);
-  // name: netflix 
-  console.log('url: ', decodedText)
-
 
   return (
     <div className='containerDataInformation'>
@@ -36,17 +30,8 @@ export const DataPerson = (props) => {
         </h3>
       </div>
       <div className='rightInformation'>
-
-
-        <ImagenPerfil src={decodedText} />
-
-        {/* {props.foto && /\.(jpg|jpeg|png|gif)$/.test(props.foto) ? (
-        <>
-        <ImagenPerfil src={props.foto} /></>
-      ) : (
-        <>
-       <ImagenPerfil src={"https://pm1.aminoapps.com/6922/714394a04d4ef6ae60fb030685dcfed809931983r1-841-1024v2_uhq.jpg"}/>
-      </>)} */}
+        <ImagenPerfil src={props.foto} />
+        
       </div>
 
     </div>

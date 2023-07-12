@@ -1,11 +1,14 @@
 import './ImagenPerfil.css';
 
 export const ImagenPerfil = (props) => {
+  //recibo todas las propiedades de la img
+  const { alt, ...otherProps } = props;
 
+  console.log(otherProps.src[0])
 
   return (
-  <div>
-      <img {...props} alt="Descripción de la imagen" className='imagenPerfil' />
-  </div>
+    <div>
+    <img {...otherProps} alt={alt} className='imagenPerfil' />
+    </div>
   )
 }

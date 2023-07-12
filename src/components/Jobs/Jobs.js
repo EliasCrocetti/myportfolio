@@ -54,9 +54,9 @@ const Jobs = ({ onChange, isAddingProject  }) => {
           <input
             type="text"
             className="InputDynamicProyects"
-            name="descripcion"
+            name="descripcionDelTrabajo"
             placeholder="Descripción del trabajo"
-            value={input.descripcion || ""}
+            value={input.descripcionDelTrabajo || ""}
             maxLength={100}
             onChange={(e) => handleInputChange(index, e)}
           />
