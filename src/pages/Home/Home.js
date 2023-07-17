@@ -13,7 +13,12 @@ import ProyectsC from "../../components/Proyects/Proyects";
 import Jobs from "../../components/Jobs/Jobs";
 
 
-const Home = () => {
+const Home = ({ onColorChange }) => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const handleColorButtonClick = (color1, color2, colorDescription) => {
+    onColorChange(color1, color2, colorDescription); // Llamar a la función onColorChange del componente padre
+  };
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -149,7 +154,7 @@ const Home = () => {
     // agrega color los parametros
     params.append('backgroundColor1', backgroundColor1);
     params.append('backgroundColor2', backgroundColor2);
-    
+
     // parametros
     params.append('name', name);
     params.append('git', git);
@@ -210,6 +215,20 @@ const Home = () => {
           {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
           <ProyectsC onChange={(proyects) => setProyects(proyects)} isAddingProject={isAddingProject} setIsAddingProject={setIsAddingProject}></ProyectsC>
           <Jobs onChange={(jobs) => setJobs(jobs)} ></Jobs>
+          
+          <div >
+              <ul >
+              <li className="center-buttons">
+                <button className="changeWhite" onClick={() => handleColorButtonClick('#003400', '#89004f', 'pink')}></button>
+                <button className="changeBlack" onClick={() => handleColorButtonClick('#151419', '#02024C', 'original')}></button>
+                <button className="changeGreen" onClick={() => handleColorButtonClick('#4C1864', '#003400', 'green')}></button>
+                <button className="changeCyan" onClick={() => handleColorButtonClick('#151419', '#9198e5', 'original')}></button>
+                <button className="changeOriginal" onClick={() => handleColorButtonClick('#151419', '#282c34', 'original')}></button>
+                <button className="changeBordo" onClick={() => handleColorButtonClick('#855', '#111', 'original')}></button>
+              </li>
+            </ul>
+          </div>
+          
           <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"}
             onChange={(event) => handleTextAreaChange(event.target.value)} />
 
