@@ -11,3 +11,49 @@
     color: #d01c1cb8;
     font-weight: 600;
 }
+
+.fileInputLabel {
+    color: #adacb0;
+    border: 0;
+    border-bottom: 1px solid #adacb0;
+    padding: 12px 15px;
+    height: auto;
+    background: transparent;
+    width: auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .fileInput {
+    /* Hiding the default file input */
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .imagePreviewContainer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .imagePreview {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  .uploadMessage {
+    color: #adacb0;
+    border: 0;
+    border-bottom: 1px solid #adacb0;
+    padding: 12px 15px;
+    height: auto;
+    background: transparent;
+    width: auto;
+    display: block;
+    text-align: center;
+  }
+  

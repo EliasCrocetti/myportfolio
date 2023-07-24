@@ -12,6 +12,8 @@ import InputComponent from "../../components/InputDynamic/InputDynamic";
 import ProyectsC from "../../components/Proyects/Proyects";
 import Jobs from "../../components/Jobs/Jobs";
 
+import { uploadFile } from '../../Firebase/Config'
+
 
 const Home = ({ onColorChange }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -37,6 +39,22 @@ const Home = ({ onColorChange }) => {
   const [gradient, setGradient] = useState(backgroundColor);
   const [changeColorText, setchangeColorText] = useState('white');
   const [isAddingProject, setIsAddingProject] = useState(true);
+  const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [fileUrl, setFileUrl] = useState(null);
+
+  const handleSubmit = async (e) => {
+    try {
+      setUploading(true); // Set the uploading status to true while waiting for the response
+      const result = await uploadFile(e);
+      setFileUrl(result); // Set the file URL after successful upload
+      setUploading(false); // Set the uploading status back to false
+    } catch (error) {
+      console.log(error);
+      setUploading(false); // Set the uploading status back to false on error
+    }
+  };
+
 
   const validateArray = (array) => {
     let esValido = false;
@@ -209,15 +227,40 @@ const Home = ({ onColorChange }) => {
           <Input placeholder={"Link de tu GIT"} onChange={(event) => setGit(event.target.value)} />
           <Input placeholder={"Link de tu Linkedin"} onChange={(event) => setLinkedin(event.target.value)} />
           <Input placeholder={"Ingresá tu Email"} onChange={(event) => setEmail(event.target.value)} />
-          <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} />
+          {/* <Input placeholder={"Link de tu foto en JPG"} onChange={(event) => setImagenPerfil(event.target.value)} /> */}
           <Input placeholder={"Tu oficio. Ej: FrontEnd Development"} onChange={(event) => setOficio(event.target.value)} />
           <Input placeholder={"Tus skills ej: react, angular"} onChange={(event) => setSkills(event.target.value)} />
           {/* <InputComponent placeholder={"Link a tus proyectos"} onChange={(proyects) => setProyects(proyects)} /> */}
+          {/* <input className="Input" title="Subi una imagen de tu cara" type="file" accept="image/*" onChange={e => handleSubmit(e.target.files[0])}></input> */}
+          <label htmlFor="fileInput"  className="fileInputLabel">
+            Clic aca y una imagen tuya
+          </label>
+          <input
+            id="fileInput"
+            type="file"
+            accept="image/*"
+            className="fileInput"
+            onChange={e => handleSubmit(e.target.files[0])}
+          />
+
+          {/* Show "Subiendo" message while uploading */}
+          {uploading && <div className="uploadMessage">Subiendo...</div>}
+
+          {/* Show "Archivo subido" message after successful upload */}
+          {fileUrl && <div className="uploadMessage">Archivo subido con éxito</div>}
+
+          {/* Show the uploaded image preview */}
+          {fileUrl && (
+            <div className="imagePreviewContainer">
+              <img src={fileUrl} alt="Uploaded" className="imagePreview" />
+            </div>
+          )}
+
           <ProyectsC onChange={(proyects) => setProyects(proyects)} isAddingProject={isAddingProject} setIsAddingProject={setIsAddingProject}></ProyectsC>
           <Jobs onChange={(jobs) => setJobs(jobs)} ></Jobs>
-          
+
           <div >
-              <ul >
+            <ul >
               <li className="center-buttons">
                 <button className="changeWhite" onClick={() => handleColorButtonClick('#003400', '#89004f', 'pink')}></button>
                 <button className="changeBlack" onClick={() => handleColorButtonClick('#151419', '#02024C', 'original')}></button>
@@ -228,7 +271,7 @@ const Home = ({ onColorChange }) => {
               </li>
             </ul>
           </div>
-          
+
           <TextArea placeholder={"Descripcion, recuerda escribirla en ingles. \nSi no tenes, deja este campo vacio"}
             onChange={(event) => handleTextAreaChange(event.target.value)} />
 
